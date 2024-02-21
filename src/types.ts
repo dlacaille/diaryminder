@@ -1,4 +1,4 @@
-export type RoomCallback = (event: any) => void
+export type RoomCallback = (body: string, event: any) => void
 export type Disposable = { dispose(): void }
 export type AppConfig = {
   home: string
