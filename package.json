@@ -1,0 +1,22 @@
+{
+  "name": "diaryminder",
+  "version": "1.0.0",
+  "description": "Companion for your matrix server helping you keep a diary with configurable prompts and schedules",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "author": "Dominic Lacaille",
+  "license": "ISC",
+  "prettier": {
+    "semi": false
+  },
+  "dependencies": {
+    "matrix-bot-sdk": "^0.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
