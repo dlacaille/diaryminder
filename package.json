@@ -2,9 +2,12 @@
   "name": "diaryminder",
   "version": "1.0.0",
   "description": "Companion for your matrix server helping you keep a diary with configurable prompts and schedules",
-  "main": "index.ts",
+  "source": "index.ts",
+  "module": "dist/diaryminder.mjs",
   "scripts": {
-    "start": "tsnd index.ts"
+    "start": "node dist/diaryminder.mjs",
+    "dev": "tsnd index.ts",
+    "build": "parcel build"
   },
   "author": "Dominic Lacaille",
   "license": "ISC",
@@ -35,6 +38,7 @@
     "@types/node-schedule": "^2.1.6",
     "eslint": "^8.56.0",
     "eslint-plugin-unicorn": "^51.0.1",
+    "parcel": "^2.11.0",
     "ts-node-dev": "^2.0.0",
     "typescript-eslint": "^7.0.2"
   }

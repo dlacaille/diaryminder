@@ -1,0 +1,16 @@
+{
+  "dir": "./diary",
+  "home": "https://matrix.my.domain",
+  "token": "TOKEN_HERE",
+  "variables": {
+    "name": "Bob"
+  },
+  "prompts": [
+    "${name} made the cutest face when… Describe it!",
+    "Did ${name} teach you something cool today? What was it?",
+    "Did you and ${name} have a disagreement today? How did you resolve it in a way that strengthened your connection?",
+    "Imagine if you and ${name} had a superpower together. What would it be and what would you do?",
+    "Spill the tea! What embarrassing (but adorable) thing did ${name} do?"
+  ],
+  "schedules": ["0 9 * * *"]
+}

@@ -1,2 +1,1 @@
-export const roomIdKey = "roomId"
-export const nextDateKey = "nextDate"
+export const roomIdsKey = "roomIds"

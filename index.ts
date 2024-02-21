@@ -7,5 +7,6 @@ AutojoinRoomsMixin.setupOnClient(client)
 client.on("room.message", handleRoomMessage)
 client.start().then(() => {
   console.log("Bot started!")
-  schedulePrompts()
+  const date = schedulePrompts()
+  if (date) console.log("Next message scheduled on " + date)
 })

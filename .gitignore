@@ -1,3 +1,6 @@
 node_modules
+.parcel-cache
+dist
+diary.*.txt
 matrix-bot.json
 config.json
