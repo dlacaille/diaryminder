@@ -8,6 +8,6 @@ export default function printDiary(roomId: string, lines = 10) {
   const path = dirPath(filename)
 
   readLastLines.read(path, lines).then((text: string) => {
-    client.sendNotice(roomId, `\`\`\`\n${text}\n\`\`\``)
+    client.sendNotice(roomId, text.trimEnd())
   })
 }
