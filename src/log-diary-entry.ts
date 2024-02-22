@@ -1,5 +1,6 @@
 import fs from "node:fs"
 import dirPath from "./utils/dir-path"
+import diaryFilename from "./utils/diary-filename"
 
 export default function logDiaryEntry(
   roomId: string,
@@ -8,7 +9,7 @@ export default function logDiaryEntry(
 ) {
   const date = new Date()
   const dateStr = date.toISOString()
-  const filename = "diary." + roomId.replace(/[^a-z0-9]/gi, "_") + ".txt"
+  const filename = diaryFilename(roomId)
   const path = dirPath(filename)
   const entry = `${dateStr}: (${sender}) ${text}\n`
   fs.appendFileSync(path, entry, {

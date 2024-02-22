@@ -24,12 +24,16 @@
     "rules": {
       "@typescript-eslint/no-explicit-any": "off",
       "unicorn/prefer-top-level-await": "off",
-      "unicorn/prefer-string-replace-all": "off"
+      "unicorn/prefer-string-replace-all": "off",
+      "unicorn/number-literal-case": "off",
+      "unicorn/numeric-separators-style": "off",
+      "unicorn/prevent-abbreviations": "off"
     }
   },
   "dependencies": {
     "matrix-bot-sdk": "^0.7.1",
     "node-schedule": "^2.1.1",
+    "read-last-lines": "^1.8.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
