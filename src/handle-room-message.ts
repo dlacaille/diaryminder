@@ -26,6 +26,7 @@ function onCommand(
       initialSetup(roomId)
       break
     }
+    case "log":
     case "diary": {
       printDiary(roomId)
       break
