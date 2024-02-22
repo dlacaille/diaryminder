@@ -8,7 +8,7 @@ export default function logDiaryEntry(
   text: string,
 ) {
   const date = new Date()
-  const dateStr = date.toISOString()
+  const dateStr = date.toLocaleString()
   const filename = diaryFilename(roomId)
   const path = dirPath(filename)
   const entry = `${dateStr}: (${sender}) ${text}\n`
