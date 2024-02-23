@@ -10,6 +10,9 @@ export function scheduleRoomPrompts(roomId: string) {
   for (const cron of config.schedules) {
     Log.log(cron)
     const job = schedule.scheduleJob(cron, function () {
+      // Check if we are still subscribed to this room
+      if (!roomIdsStorage.get().includes(roomId)) return
+
       sendPrompt(roomId)
     })
     const date = job.nextInvocation()

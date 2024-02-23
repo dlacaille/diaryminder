@@ -37,8 +37,8 @@ function onCommand(
   }
 }
 
-export default async function handleRoomMessage(roomId: string, raw: any) {
-  const event = new MessageEvent<any>(raw)
+export default async function handleRoomMessage(roomId: string, eventRaw: any) {
+  const event = new MessageEvent<any>(eventRaw)
   const botId = await client.getUserId()
 
   // Skip events that aren't text
@@ -74,4 +74,26 @@ export default async function handleRoomMessage(roomId: string, raw: any) {
 
   // Anything else gets logged in the diary
   logDiaryEntry(roomId, event.sender, body)
+}
+
+function handleRoomJoin(roomId: string) {
+  // Check if we have run initial setup for this room
+  if (!roomIdsStorage.get().includes(roomId)) {
+    initialSetup(roomId)
+    return
+  }
+}
+
+function handleRoomLeave(roomId: string) {
+  // Forget the room
+  const roomIds = roomIdsStorage.get()
+  if (roomIds.includes(roomId)) {
+    roomIdsStorage.set(roomIds.filter((r) => r !== roomId))
+  }
+}
+
+export function setupRoomEvents() {
+  client.on("room.message", handleRoomMessage)
+  client.on("room.join", handleRoomJoin)
+  client.on("room.leave", handleRoomLeave)
 }
