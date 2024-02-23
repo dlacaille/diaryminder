@@ -21,7 +21,7 @@ To configure, copy the `config.sample.json` file in this repository and configur
   "home": "https://matrix.my.domain",
   "token": "TOKEN_HERE",
   "variables": {
-    "name": "Bob"
+    "name": "Alice"
   },
   "prompts": [
     "${name} made the cutest face when… Describe it!",
