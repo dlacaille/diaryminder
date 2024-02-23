@@ -2,6 +2,7 @@ import fs from "node:fs"
 import readLastLines from "read-last-lines"
 import diaryFilename from "./utils/diary-filename"
 import dirPath from "./utils/dir-path"
+import Log from "./utils/logger"
 
 export default function popDiaryEntry(roomId: string, sender: string) {
   const filename = diaryFilename(roomId)
@@ -17,7 +18,7 @@ export default function popDiaryEntry(roomId: string, sender: string) {
       if (error) throw error
       fs.truncate(path, stats.size - line.length, (error) => {
         if (error) throw error
-        console.log("Truncated last line from " + filename)
+        Log.log("Truncated last line from " + filename)
       })
     })
   })

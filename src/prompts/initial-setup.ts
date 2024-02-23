@@ -1,8 +1,9 @@
 import { waitForMessage } from "../utils/callback-queue"
 import client from "../client"
-import schedulePrompts from "../schedule-prompts"
+import { scheduleRoomPrompts } from "../schedule-prompts"
 import sleep from "../utils/sleep"
 import roomIdsStorage from "../storage/room-ids"
+import Log from "../utils/logger"
 
 async function writeMessages(roomId: string, messages: string[]) {
   let message: string
@@ -33,8 +34,7 @@ export default async function initialSetup(roomId: string) {
     roomIds.push(roomId)
     roomIdsStorage.set(roomIds)
   }
-  console.log("Initial setup completed for roomId " + roomId)
-  const date = schedulePrompts()
+  Log.log("Initial setup completed for roomId " + roomId)
+  scheduleRoomPrompts(roomId)
   await client.sendNotice(roomId, "Setup completed!")
-  await client.sendNotice(roomId, "Next message is scheduled for " + date)
 }

@@ -1,6 +1,7 @@
 import fs from "node:fs"
 import dirPath from "./utils/dir-path"
 import diaryFilename from "./utils/diary-filename"
+import Log from "./utils/logger"
 
 export default function logDiaryEntry(
   roomId: string,
@@ -15,5 +16,5 @@ export default function logDiaryEntry(
   fs.appendFileSync(path, entry, {
     encoding: "utf8",
   })
-  console.log("Wrote diary entry in " + filename)
+  Log.log("Wrote diary entry in " + filename)
 }

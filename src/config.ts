@@ -1,5 +1,6 @@
 import fs from "node:fs"
 import { AppConfig } from "./types"
+import Log from "./utils/logger"
 
 const loadConfig = (filename: string) => {
   if (!fs.existsSync(filename)) {
@@ -9,7 +10,7 @@ const loadConfig = (filename: string) => {
     const json = fs.readFileSync(filename, { encoding: "utf8" }).toString()
     return JSON.parse(json) as AppConfig
   } catch (error) {
-    console.error(`Could not load ${filename}`)
+    Log.error(`Could not load ${filename}`)
     throw error
   }
 }
