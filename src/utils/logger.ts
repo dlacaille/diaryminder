@@ -1,5 +1,5 @@
 function ts() {
-  return Date.now().toLocaleString()
+  return new Date().toLocaleString()
 }
 
 function prefix(type: "LOG" | "ERR" | "WRN" | "INF" | "DBG" | "TRC") {
