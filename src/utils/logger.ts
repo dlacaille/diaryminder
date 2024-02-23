@@ -1,9 +1,9 @@
 function ts() {
-  return new Date().toLocaleString()
+  return new Date().toISOString()
 }
 
 function prefix(type: "LOG" | "ERR" | "WRN" | "INF" | "DBG" | "TRC") {
-  return `${type} ${ts()}:`
+  return `[${type}] ${ts()}:`
 }
 
 const Log = {
